@@ -1,0 +1,36 @@
+
+# This file specifies which non-library sources to compile for which
+# core/context, and using which compiler flags.
+
+#------------------------------------------------------------------------------
+[core0.0] # Configuration for core 0.
+#------------------------------------------------------------------------------
+
+# Compile the entry point file.
+main-core0                -O3
+
+# Compile the benchmarks. The -sub parts tell the compiler to add the
+# benchmark name as a prefix to all global functions and variables, in order
+# to make them unique. For instance, the int main(void) function in the
+# convolution_3x3.c file can be called using convolution_3x3_main().
+convolution_3x3-sub       -O3
+fir-sub                   -O3
+
+
+# Compile the library sources (floating point functions, debugging, etc.) with
+# -O3 to optimize them.
+OTHERS                    -O3
+
+#------------------------------------------------------------------------------
+[core1.0] # Configuration for core 1.
+#------------------------------------------------------------------------------
+
+# Compile the entry point file.
+main-core1                -O3
+engine-sub                -O3
+adpcm-sub                 -O3
+
+# Compile the library sources (floating point functions, debugging, etc.) with
+# -O3 to optimize them.
+OTHERS                    -O3
+
